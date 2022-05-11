@@ -25,6 +25,7 @@ class List
         void fill_by_user(int);//Agregar dato
         void print(); //Mostrar datos
         void sort();//Ordenar ascendente
+        //void ordenar_lista();
  
     private:
         Node<T> *m_head;
