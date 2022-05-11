@@ -26,7 +26,8 @@ class List
         void print(); //Mostrar datos
         void sort();//Ordenar ascendente
         //void ordenar_lista();
- 
+        void mayor();
+        
     private:
         Node<T> *m_head;
         int m_num_nodes;

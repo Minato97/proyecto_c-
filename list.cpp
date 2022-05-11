@@ -130,7 +130,21 @@ void List<T>::sort()
         aux_node = aux_node->next;
     }
 }
- 
+
+template<typename T>
+void List<T>::mayor()
+{
+    Node<T> *temp = m_head;
+    Node<T> *mayor = m_head;
+    
+    while (temp) {
+    	if(temp->data > mayor->data){
+    		mayor = temp;
+		}
+    temp = temp->next;
+}
+cout<<mayor->data;
+}
 
 template<typename T>
 List<T>::~List() {}

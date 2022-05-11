@@ -19,30 +19,6 @@ List <int> llenar_lista(List<int> lista, int tam){
 }
 return lista;
 }
-/*template<typename T>
-void List<T>::ordenar_lista(){
-	T temp_data;
-    Node<T> *aux_node = m_head;
-    Node<T> *temp = aux_node;
- 
-
-while (aux_node) {
-        temp = aux_node;
- 
-        while (temp->next) {
-            temp = temp->next;
- 
-            if (aux_node->data > temp->data) {
-                temp_data = aux_node->data;
-                aux_node->data = temp->data;
-                temp->data = temp_data;
-            }
-        }
- 
-        aux_node = aux_node->next;
-    }
-    lista.print();
-}*/
 
 int main()
 {
@@ -62,19 +38,14 @@ int main()
     cin >> dim;
  
  
-    /*cout << "Lista A al inicio " << endl;
-    list_1.print();*/
- 
- 
-
- 
+    
    	paquete = llenar_lista(paquete, dim);
+   	paquete.sort();
    	paquete.print();
    	
-    /*cout << "Lista ordenada: " << endl;
-    paquete.sort();
-    paquete.print();*/
- 
+   	paquete.mayor();
+   	
+   	
  
     /*cout << "Elimina un elemento por posición: " << endl;
     cin >> pos;
@@ -82,8 +53,6 @@ int main()
     list_1.print();*/
  
  
-    //list_1.del_all();
-    //list_1.print();
  
     return 0;
 }
