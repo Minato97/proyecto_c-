@@ -131,11 +131,13 @@ void List<T>::sort()
     }
 }
 
+//Calcular mayor de la lista
 template<typename T>
-void List<T>::mayor()
+int List<T>::mayor()
 {
     Node<T> *temp = m_head;
     Node<T> *mayor = m_head;
+    int may;
     
     while (temp) {
     	if(temp->data > mayor->data){
@@ -143,8 +145,27 @@ void List<T>::mayor()
 		}
     temp = temp->next;
 }
-cout<<mayor->data;
+may=mayor->data;
+
+return may;
 }
+
+//calcular la suma del paquete
+template<typename T>
+int List<T>::suma()
+{
+    Node<T> *temp = m_head;
+    int suma;
+    
+    while (temp) {
+    	suma += temp->data;
+		
+    temp = temp->next;
+
+}
+return suma;
+}
+
 
 template<typename T>
 List<T>::~List() {}
