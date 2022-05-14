@@ -17,6 +17,7 @@ List <int> llenar_lista(List<int> lista, int tam){
     lista.print();
     i++;
 }
+
 return lista;
 }
 
@@ -25,17 +26,25 @@ void opcion_1(List<int> paq,List<int> rut1,List<int> rut2, int tam){
 	int may;
 	may = paq.mayor();
 	rut1.add_end(may);
-	paq.del_by_position(tam);
+	paq.del_end();
 	tam -= 1;
 	
-	rut2 = paq;
+	//rut2 = paq;
 	
+	/*while (tam > 0){
+	paq.del_by_position(tam);
+	tam-=1;	
+	
+}*/
+
 	cout<<"\nLos datos del primer enlace son: "<<endl;
 	rut1.print();
 	cout<<"\nLos datos del segundo enlace son: "<<endl;
-	rut2.print();
+	paq.print();
 	
 }
+
+//void opcion_2
 
 int main()
 {
@@ -65,12 +74,17 @@ int main()
    	
    	mayor = paquete.mayor();
    	sum = paquete.suma();
+   	
+   	
    	if (sum/2 < mayor){
    	opcion_1(paquete,ruta_1,ruta_2,dim);
    }else{
    	cout<<"no se puede"<<endl;
    }
- 
+   
+   paquete.del_head();
+     
+  
     /*cout << "Elimina un elemento por posición: " << endl;
     cin >> pos;
     list_1.del_by_position(pos);

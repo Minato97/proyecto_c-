@@ -8,6 +8,7 @@ List<T>::List()
 {
     m_num_nodes = 0;
     m_head = NULL;
+    m_end = NULL;
 }
  
 // Insertar al inicio
@@ -16,9 +17,11 @@ void List<T>::add_head(T data_)
 {
     Node<T> *new_node = new Node<T> (data_);
     Node<T> *temp = m_head;
+    Node<T> *temp1 = m_end;
  
     if (!m_head) {
         m_head = new_node;
+        m_end = new_node;
     } else {
         new_node->next = m_head;
         m_head = new_node;
@@ -30,12 +33,14 @@ void List<T>::add_head(T data_)
     m_num_nodes++;
 }
  
+
 // Insertar al final
 template<typename T>
 void List<T>::add_end(T data_)
 {
     Node<T> *new_node = new Node<T> (data_);
     Node<T> *temp = m_head;
+    Node<T> *temp1 = m_end;
  
     if (!m_head) {
         m_head = new_node;
@@ -44,10 +49,11 @@ void List<T>::add_end(T data_)
             temp = temp->next;
         }
         temp->next = new_node;
+        m_end = new_node;
     }
     m_num_nodes++;
+    
 }
-
  
 
  // Eliminar por posición del nodo
@@ -74,7 +80,37 @@ void List<T>::del_by_position(int pos)
         }
     }
 }
- 
+//Eliminar inicio
+template<typename T> 
+void List<T>::del_head()
+{
+    Node<T> *temp = m_head;
+    Node<T> *temp1 = temp->next;
+    
+    m_head = temp->next;
+   	m_num_nodes--;
+}
+
+//Eliminar final
+template<typename T> 
+void List<T>::del_end()
+{
+    Node<T> *temp = m_head;
+    Node<T> *temp1 = temp->next;
+    Node<T> *temp2 = m_end;
+
+    
+    
+    while((temp->next)->next != NULL){
+		temp = temp->next;
+	}
+	free(temp->next);
+	temp->next = NULL;
+	
+	m_num_nodes--;
+}
+
+
 // Llenar la Lista por teclado
 template<typename T>
 void List<T>::fill_by_user(int dim)

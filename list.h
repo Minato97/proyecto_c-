@@ -28,9 +28,13 @@ class List
         //void ordenar_lista();
         int mayor();
         int suma();
+        void del_head();
+        void del_end();
+      
         
     private:
         Node<T> *m_head;
+        Node<T> *m_end;
         int m_num_nodes;
 };
  

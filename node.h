@@ -17,7 +17,7 @@ class Node
         Node *next;
         T data;
  
-        //void delete_all();
+     
         void print();
 };
  
