@@ -32,6 +32,23 @@ void List<T>::add_head(T data_)
     }
     m_num_nodes++;
 }
+
+template<typename T>
+void List<T>::opcion_2(List<int> paq, List<int> ruta1, List<int> ruta2)
+{
+  
+    Node<T> *temp = paq.m_head;
+    Node<T> *temp1 = paq.m_end;
+ 
+   ruta1.add_end(temp->data);
+   ruta1.add_end(temp1->data);
+   paq.del_end();
+   paq.del_head();
+   
+   ruta1.print();
+   paq.print();
+  
+}
  
 
 // Insertar al final

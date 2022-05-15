@@ -30,6 +30,7 @@ class List
         int suma();
         void del_head();
         void del_end();
+        void opcion_2(List<int>, List<int>, List<int>);
       
         
     private:

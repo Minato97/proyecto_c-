@@ -29,6 +29,7 @@ void opcion_1(List<int> paq,List<int> rut1,List<int> rut2, int tam){
 	paq.del_end();
 	tam -= 1;
 	
+	
 	//rut2 = paq;
 	
 	/*while (tam > 0){
@@ -68,6 +69,7 @@ int main()
  	cout<<"\nAhora ingresemos el paquete de datos que se enviarán:\n"<<endl;
    	paquete = llenar_lista(paquete, dim);
    	
+   	
    	cout<<"\nEl paquete ordenado en orden ascendente es:"<<endl;
    	paquete.sort();
    	paquete.print();
@@ -79,11 +81,10 @@ int main()
    	if (sum/2 < mayor){
    	opcion_1(paquete,ruta_1,ruta_2,dim);
    }else{
-   	cout<<"no se puede"<<endl;
+   	paquete.opcion_2(paquete,ruta_1,ruta_2);
    }
    
-   paquete.del_head();
-     
+  
   
     /*cout << "Elimina un elemento por posición: " << endl;
     cin >> pos;
