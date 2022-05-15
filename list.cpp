@@ -33,21 +33,27 @@ void List<T>::add_head(T data_)
     m_num_nodes++;
 }
 
+
+//opcion 2
 template<typename T>
-void List<T>::opcion_2(List<int> paq, List<int> ruta1, List<int> ruta2)
+List<int> List<T>::opcion_2(List<int> paq, List<int> ruta)
 {
   
     Node<T> *temp = paq.m_head;
     Node<T> *temp1 = paq.m_end;
  
-   ruta1.add_end(temp->data);
-   ruta1.add_end(temp1->data);
-   paq.del_end();
-   paq.del_head();
+   ruta.add_end(paq.m_head->data);
    
-   ruta1.print();
-   paq.print();
+   while (temp->next != NULL) {
+            temp = temp->next;
+        }
+  	paq.m_end = temp;
+  	ruta.add_end(paq.m_end->data);
+   
+   //cout<<paq.m_end->data<<endl;
+   //cout<<paq.m_head->data;
   
+  return ruta;
 }
  
 

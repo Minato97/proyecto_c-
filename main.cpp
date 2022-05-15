@@ -28,15 +28,6 @@ void opcion_1(List<int> paq,List<int> rut1,List<int> rut2, int tam){
 	rut1.add_end(may);
 	paq.del_end();
 	tam -= 1;
-	
-	
-	//rut2 = paq;
-	
-	/*while (tam > 0){
-	paq.del_by_position(tam);
-	tam-=1;	
-	
-}*/
 
 	cout<<"\nLos datos del primer enlace son: "<<endl;
 	rut1.print();
@@ -45,7 +36,7 @@ void opcion_1(List<int> paq,List<int> rut1,List<int> rut2, int tam){
 	
 }
 
-//void opcion_2
+
 
 int main()
 {
@@ -78,10 +69,21 @@ int main()
    	sum = paquete.suma();
    	
    	
+   	
    	if (sum/2 < mayor){
    	opcion_1(paquete,ruta_1,ruta_2,dim);
+   	
    }else{
-   	paquete.opcion_2(paquete,ruta_1,ruta_2);
+   	ruta_1 = paquete.opcion_2(paquete,ruta_1);
+   	 paquete.del_end();
+   	 paquete.del_head();
+   	 ruta_1.print();
+   	 //paquete.print();
+   	ruta_2 = paquete.opcion_2(paquete,ruta_2);
+   	paquete.del_end();
+	paquete.del_head();
+   	ruta_2.print();
+   	paquete.print();
    }
    
   
