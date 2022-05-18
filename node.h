@@ -10,15 +10,15 @@ template <class T>
 class Node
 {
     public:
-        Node();
-        Node(T);
-        ~Node();
+        Node();//Constructor por defecto
+        Node(T);//Constructor con parametros
+        ~Node();//Destructor
  
-        Node *next;
-        T data;
+        Node *next;//Puntero que apunta al valor siguiente del nodo
+        T data;//Guarda el valor del nodo
  
      
-        void print();
+        void print();//Funcion para imprimir la lista
 };
  
 #endif // NODE_H

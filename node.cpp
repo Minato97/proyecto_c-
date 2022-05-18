@@ -22,7 +22,6 @@ Node<T>::Node(T data_)
 template<typename T>
 void Node<T>::print()
 {
-    //cout << "Node-> " << "Dato: " << dato << " Direcion: " << this << " Siguiente: " << next << endl;
     cout << data << "-> ";
 }
  

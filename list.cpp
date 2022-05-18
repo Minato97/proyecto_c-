@@ -1,4 +1,5 @@
 #include "list.h"
+#include <windows.h>
  
 using namespace std;
  
@@ -33,6 +34,35 @@ void List<T>::add_head(T data_)
     m_num_nodes++;
 }
 
+//Opcion 1
+template<typename T>
+void List<T>::opcion_1(List<int> paq,List<int> rut1, int tam){
+	
+	int may,sum_1;
+	may = paq.mayor();
+	rut1.add_end(may);
+	paq.del_end();
+	tam -= 1;
+
+	cout<<"------------------------------------------------------";
+	Sleep(200);
+	cout<<"\n\nLos datos del primer enlace son: "<<endl;
+	Sleep(200);
+	rut1.print();
+	sum_1 = rut1.suma();
+	cout<<"La suma del paquete de la ruta 1 es: "<<sum_1<<"\n\n";
+	Sleep(200);
+	sum_1 = 0;
+	cout<<"------------------------------------------------------";
+	Sleep(200);
+	cout<<"\n\nLos datos del segundo enlace son: "<<endl;
+	Sleep(200);
+	paq.print();
+	sum_1 = paq.suma();
+	cout<<"La suma del paquete de la ruta 1 es: "<<sum_1<<"\n\n";
+	Sleep(200);
+	sum_1 = 0;
+}
 
 //opcion 2
 template<typename T>
@@ -53,6 +83,38 @@ List<int> List<T>::opcion_2(List<int> paq, List<int> ruta)
    //cout<<paq.m_end->data<<endl;
    //cout<<paq.m_head->data;
   
+  return ruta;
+}
+
+//opcion 3
+template<typename T>
+List<int> List<T>::opcion_3(List<int> paq, List<int> ruta)
+{
+  
+    Node<T> *temp = paq.m_head;
+   
+   ruta.add_end(paq.m_head->data);
+   
+   
+  
+  return ruta;
+}
+
+//opcion 4
+template<typename T>
+List<int> List<T>::opcion_4(List<int> paq, List<int> ruta)
+{
+  
+    Node<T> *temp = paq.m_head;
+    Node<T> *temp1 = paq.m_end;
+ 
+   
+   while (temp->next != NULL) {
+            temp = temp->next;
+        }
+  	paq.m_end = temp;
+  	ruta.add_end(paq.m_end->data);
+   
   return ruta;
 }
  
@@ -134,18 +196,6 @@ void List<T>::del_end()
 }
 
 
-// Llenar la Lista por teclado
-template<typename T>
-void List<T>::fill_by_user(int dim)
-{
-    T ele;
-    for (int i = 0; i < dim; i++) {
-        cout << "Ingresa el elemento " << i + 1 << endl;
-        cin >> ele;
-        add_end(ele);
-    }
-}
- 
  
 // Imprimir la Lista
 template<typename T>
@@ -153,10 +203,11 @@ void List<T>::print()
 {
     Node<T> *temp = m_head;
     if (!m_head) {
-        cout << "La Lista está vacía " << endl;
+        cout << "No hay datos por enviar " << endl;
     } else {
         while (temp) {
             temp->print();
+            Sleep(200);
             if (!temp->next) cout << "NULL";
                 temp = temp->next;
         }
@@ -223,6 +274,22 @@ int List<T>::suma()
 
 }
 return suma;
+}
+
+//Funcion de llenado de la lista principal
+template<typename T>
+List<int> List<T>::llenar_lista(List<int> lista, int tam){
+ int i=0,ele=0;
+ while(i<tam){
+ 
+    cout << "Ingrese el elemento que ocupará la posición "<<i+1<<": " << endl;
+    cin >> ele;
+    lista.add_end(ele);
+    lista.print();
+    i++;
+}
+
+return lista;
 }
 
 
