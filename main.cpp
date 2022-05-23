@@ -59,38 +59,38 @@ int main()
    }else{
 	   	while(dim > 0){
 	   		
-	   		if(dim == 3){
+	   		if(dim == 3){//se añade el primer dato a la ruta 1
 				ruta_1 = paquete.opcion_3(paquete,ruta_1);
 				paquete.del_head();
 				
-				ruta_2 = paquete.opcion_4(paquete,ruta_2);
+				ruta_2 = paquete.opcion_4(paquete,ruta_2);//se añade el dato final a la ruta 2
 				paquete.del_end();
 				
-				ruta_1 = paquete.opcion_4(paquete,ruta_1);
+				ruta_1 = paquete.opcion_4(paquete,ruta_1);//se añade el ultimo dato a la ruta 1
 				paquete.del_head();
 				dim -= 3;
 				}
 			else if(dim == 2){
-				ruta_1 = paquete.opcion_3(paquete,ruta_1);
+				ruta_1 = paquete.opcion_3(paquete,ruta_1);//se añade el primer dato a la ruta 1
 				paquete.del_head();
 				
-				ruta_2 = paquete.opcion_4(paquete,ruta_2);
+				ruta_2 = paquete.opcion_4(paquete,ruta_2);//se añade el dato final a la ruta 2
 				paquete.del_end();
 				dim -= 2;
 				}
 			else if(dim == 1){
-				ruta_2 = paquete.opcion_4(paquete,ruta_2);
+				ruta_2 = paquete.opcion_4(paquete,ruta_2);//se añade el unico dato a la ruta 2
 				paquete.del_head();
 				dim -= 1;
 				}
-			else if(dim !=1 && dim != 2 && dim != 3 && dim != 0){
+			else if(dim !=1 && dim != 2 && dim != 3 && dim != 0){//se añade el dato final y el primero a la ruta 1
 				ruta_1 = paquete.opcion_2(paquete,ruta_1);
 				paquete.del_end();
-				paquete.del_head();
+				paquete.del_head();//se eliminan ambos datos
 				
-				ruta_2 = paquete.opcion_2(paquete,ruta_2);
+				ruta_2 = paquete.opcion_2(paquete,ruta_2);//se añade el dato final y el primero a la ruta 2
 				paquete.del_end();
-				paquete.del_head();
+				paquete.del_head();//se borran ambos datos
 				dim -= 4;			
 				}
 			}
@@ -120,6 +120,6 @@ int main()
 		}
 		
 	
- 
+ 	system("pause");
     return 0;
 }
